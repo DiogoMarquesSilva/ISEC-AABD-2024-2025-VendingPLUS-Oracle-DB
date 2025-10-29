@@ -1,0 +1,1059 @@
+/*==============================================================*/
+/* DBMS name:      ORACLE Version 11g                           */
+/* Created on:     26/03/2025 09:36:31                          */
+/*==============================================================*/
+
+
+alter table COMPARTIMENTO
+   drop constraint FK_COMPARTI_E_CONSTIT_MAQUINA;
+
+alter table ENCOMENDA
+   drop constraint FK_ENCOMEND_PROPOE_FUNCIONA;
+
+alter table ENCOMENDA
+   drop constraint FK_ENCOMEND_RECEBE_PR_ARMAZEM;
+
+alter table ENVIA_EVENTO
+   drop constraint FK_ENVIA_EV_ENVIA_EVE_EVENTOS;
+
+alter table ENVIA_EVENTO
+   drop constraint FK_ENVIA_EV_ENVIA_EVE_MAQUINA;
+
+alter table ESTA_NUM
+   drop constraint FK_ESTA_NUM_ESTA_NUM__COMPARTI;
+
+alter table ESTA_NUM
+   drop constraint FK_ESTA_NUM_ESTA_NUM__PRODUTO;
+
+alter table FUNCIONARIO_DO_ARMAZEM
+   drop constraint FK_FUNCIONA_TRABALHA_ARMAZEM;
+
+alter table GERA_MANUTENCAO
+   drop constraint FK_GERA_MAN_GMANUTENC_PORTAL_D;
+
+alter table GERA_MANUTENCAO
+   drop constraint FK_GERA_MAN_GMANUTENC_MANUTENC;
+
+alter table GERA_REPOSICAO
+   drop constraint FK_GERA_REP_GREPOSICA_REPOSICA;
+
+alter table GERA_REPOSICAO
+   drop constraint FK_GERA_REP_GREPOSICA_PORTAL_D;
+
+alter table IDEALIZA
+   drop constraint FK_IDEALIZA_IDEALIZA_FUNCIONA;
+
+alter table IDEALIZA
+   drop constraint FK_IDEALIZA_IDEALIZA2_ROTA;
+
+alter table INCLUI
+   drop constraint FK_INCLUI_INCLUI_ROTA;
+
+alter table INCLUI
+   drop constraint FK_INCLUI_INCLUI2_MAQUINA;
+
+alter table MANUTENCAO
+   drop constraint FK_MANUTENC_REPARAR_E_VISITA;
+
+alter table MANUTENCAO
+   drop constraint FK_MANUTENC_REPARAR_N_MAQUINA;
+
+alter table PEDE
+   drop constraint FK_PEDE_PEDE_ENCOMEND;
+
+alter table PEDE
+   drop constraint FK_PEDE_PEDE2_PRODUTO;
+
+alter table PORTAL_DE_RECLAMACOES
+   drop constraint FK_PORTAL_D_INCIDE_VENDA;
+
+alter table POSSUI
+   drop constraint FK_POSSUI_POSSUI_MAQUINA;
+
+alter table POSSUI
+   drop constraint FK_POSSUI_POSSUI2_PRODUTO;
+
+alter table RECARREGAR_BATERIA
+   drop constraint FK_RECARREG_RECARREGA_ARMAZEM;
+
+alter table RECARREGAR_BATERIA
+   drop constraint FK_RECARREG_RECARREGA_VEICULO;
+
+alter table REPOSICAO
+   drop constraint FK_REPOSICA_REPOR_PRODUTO;
+
+alter table REPOSICAO
+   drop constraint FK_REPOSICA_REPOR_EM__VISITA;
+
+alter table REPOSICAO
+   drop constraint FK_REPOSICA_REPOR_NO_COMPARTI;
+
+alter table ROTA
+   drop constraint FK_ROTA_INCIA_SE__ARMAZEM;
+
+alter table TEM
+   drop constraint FK_TEM_TEM_PRODUTO;
+
+alter table TEM
+   drop constraint FK_TEM_TEM2_ARMAZEM;
+
+alter table TRANSPORTA
+   drop constraint FK_TRANSPOR_TRANSPORT_VIAGEM;
+
+alter table TRANSPORTA
+   drop constraint FK_TRANSPOR_TRANSPORT_PRODUTO;
+
+alter table VENDA
+   drop constraint FK_VENDA_E_FEITA_N_MAQUINA;
+
+alter table VENDA
+   drop constraint FK_VENDA_E_FEITA_N_COMPARTI;
+
+alter table VENDA
+   drop constraint FK_VENDA_VENDE_SE_PRODUTO;
+
+alter table VIAGEM
+   drop constraint FK_VIAGEM_CONDUZ_FUNCIONA;
+
+alter table VIAGEM
+   drop constraint FK_VIAGEM_E_UTILIZA_VEICULO;
+
+alter table VIAGEM
+   drop constraint FK_VIAGEM_SEGUE_ROTA;
+
+alter table VISITA
+   drop constraint FK_VISITA_ENGLOBA_MAQUINA;
+
+alter table VISITA
+   drop constraint FK_VISITA_PROVEM_VIAGEM;
+
+alter table VISITA
+   drop constraint FK_VISITA_RELATIONS_PORTAL_D;
+
+drop table ARMAZEM cascade constraints;
+
+drop index E_CONSTITUIDA_POR_FK;
+
+drop table COMPARTIMENTO cascade constraints;
+
+drop index RECEBE_PRODUTOS_DA_FK;
+
+drop index PROPOE_FK;
+
+drop table ENCOMENDA cascade constraints;
+
+drop index ENVIA_EVENTO_FK;
+
+drop table ENVIA_EVENTO cascade constraints;
+
+drop index ESTA_NUM_2_FK;
+
+drop index ESTA_NUM_1_FK;
+
+drop table ESTA_NUM cascade constraints;
+
+drop table EVENTOS cascade constraints;
+
+drop table FUNCIONARIO cascade constraints;
+
+drop index TRABALHA_FK;
+
+drop table FUNCIONARIO_DO_ARMAZEM cascade constraints;
+
+drop index GMANUTENCAO2_FK;
+
+drop index GMANUTENCAO1_FK;
+
+drop table GERA_MANUTENCAO cascade constraints;
+
+drop index GREPOSICAO1_FK;
+
+drop index GREPOSICAO2_FK;
+
+drop table GERA_REPOSICAO cascade constraints;
+
+drop index IDEALIZA2_FK;
+
+drop index IDEALIZA_FK;
+
+drop table IDEALIZA cascade constraints;
+
+drop index INCLUI2_FK;
+
+drop index INCLUI_FK;
+
+drop table INCLUI cascade constraints;
+
+drop index REPARAR_EM_VIAGEM_FK;
+
+drop index REPARAR_NA_FK;
+
+drop table MANUTENCAO cascade constraints;
+
+drop table MAQUINA cascade constraints;
+
+drop index PEDE2_FK;
+
+drop index PEDE_FK;
+
+drop table PEDE cascade constraints;
+
+drop index INCIDE_FK;
+
+drop table PORTAL_DE_RECLAMACOES cascade constraints;
+
+drop index POSSUI2_FK;
+
+drop index POSSUI_FK;
+
+drop table POSSUI cascade constraints;
+
+drop table PRODUTO cascade constraints;
+
+drop index RECARREGAR_BATERIA_1_FK;
+
+drop index RECARREGAR_BATERIA_2_FK;
+
+drop table RECARREGAR_BATERIA cascade constraints;
+
+drop index REPOR_EM_VIAGEM_FK;
+
+drop index REPOR_NO_FK;
+
+drop index REPOR_FK;
+
+drop table REPOSICAO cascade constraints;
+
+drop index INCIA_SE_EM_FK;
+
+drop table ROTA cascade constraints;
+
+drop index TEM2_FK;
+
+drop index TEM_FK;
+
+drop table TEM cascade constraints;
+
+drop index TRANSPORTA2_FK;
+
+drop index TRANSPORTA_FK;
+
+drop table TRANSPORTA cascade constraints;
+
+drop table VEICULO cascade constraints;
+
+drop index E_FEITA_NO_FK;
+
+drop index VENDE_SE_FK;
+
+drop index E_FEITA_NA_FK;
+
+drop table VENDA cascade constraints;
+
+drop index SEGUE_FK;
+
+drop index E_UTILIZADO_EM_FK;
+
+drop index CONDUZ_FK;
+
+drop table VIAGEM cascade constraints;
+
+drop index PROVEM_FK;
+
+drop index ENGLOBA_FK;
+
+drop index RELATIONSHIP_1_FK;
+
+drop table VISITA cascade constraints;
+
+/*==============================================================*/
+/* Table: ARMAZEM                                               */
+/*==============================================================*/
+create table ARMAZEM 
+(
+   ID_ARMAZEM           NUMBER               not null,
+   LOCALIZACAO          VARCHAR2(100),
+   DESIGNACAO           VARCHAR2(100),
+   LATITUDE             NUMBER(10, 6),
+   LONGITUDE            NUMBER(10, 6),
+   constraint PK_ARMAZEM primary key (ID_ARMAZEM)
+);
+
+/*==============================================================*/
+/* Table: COMPARTIMENTO                                         */
+/*==============================================================*/
+create table COMPARTIMENTO 
+(
+   ID_COMPARTIMENTO     NUMBER               not null,
+   ID_MAQUINA           NUMBER               not null,
+   CODIGO_COMPARTIMENTO VARCHAR2(100),
+   QUANTIDADE_ATUAL     NUMBER,
+   CAPACIDADE_MAX       NUMBER,
+   QUANTIDADE_MINIMA    NUMBER,
+   PRECO                NUMBER(10, 2),
+   constraint PK_COMPARTIMENTO primary key (ID_COMPARTIMENTO)
+);
+
+/*==============================================================*/
+/* Index: E_CONSTITUIDA_POR_FK                                  */
+/*==============================================================*/
+create index E_CONSTITUIDA_POR_FK on COMPARTIMENTO (
+   ID_MAQUINA ASC
+);
+
+/*==============================================================*/
+/* Table: ENCOMENDA                                             */
+/*==============================================================*/
+create table ENCOMENDA 
+(
+   ID_ENCOMENDA         NUMBER               not null,
+   ID_ARMAZEM           NUMBER,
+   ID_FUNCIONARIO_ARMAZEM NUMBER,
+   DATA_ENCOMENDA       DATE,
+   ESTADO               VARCHAR2(100),
+   constraint PK_ENCOMENDA primary key (ID_ENCOMENDA)
+);
+
+/*==============================================================*/
+/* Index: PROPOE_FK                                             */
+/*==============================================================*/
+create index PROPOE_FK on ENCOMENDA (
+   ID_FUNCIONARIO_ARMAZEM ASC
+);
+
+/*==============================================================*/
+/* Index: RECEBE_PRODUTOS_DA_FK                                 */
+/*==============================================================*/
+create index RECEBE_PRODUTOS_DA_FK on ENCOMENDA (
+   ID_ARMAZEM ASC
+);
+
+/*==============================================================*/
+/* Table: ENVIA_EVENTO                                          */
+/*==============================================================*/
+create table ENVIA_EVENTO 
+(
+   ID_MAQUINA           NUMBER               not null,
+   ID_EVENTO            NUMBER,
+   DATA_HORA_ENVIO      DATE,
+   APRECIACAO           VARCHAR2(100),
+   constraint PK_ENVIA_EVENTO primary key (ID_MAQUINA)
+);
+
+/*==============================================================*/
+/* Index: ENVIA_EVENTO_FK                                       */
+/*==============================================================*/
+create index ENVIA_EVENTO_FK on ENVIA_EVENTO (
+   ID_EVENTO ASC
+);
+
+/*==============================================================*/
+/* Table: ESTA_NUM                                              */
+/*==============================================================*/
+create table ESTA_NUM 
+(
+   ID_COMPARTIMENTO     NUMBER               not null,
+   ID_PRODUTO           NUMBER               not null,
+   constraint PK_ESTA_NUM primary key (ID_COMPARTIMENTO, ID_PRODUTO)
+);
+
+/*==============================================================*/
+/* Index: ESTA_NUM_1_FK                                         */
+/*==============================================================*/
+create index ESTA_NUM_1_FK on ESTA_NUM (
+   ID_COMPARTIMENTO ASC
+);
+
+/*==============================================================*/
+/* Index: ESTA_NUM_2_FK                                         */
+/*==============================================================*/
+create index ESTA_NUM_2_FK on ESTA_NUM (
+   ID_PRODUTO ASC
+);
+
+/*==============================================================*/
+/* Table: EVENTOS                                               */
+/*==============================================================*/
+create table EVENTOS 
+(
+   ID_EVENTO            NUMBER               not null,
+   TIPO_EVENTO          VARCHAR2(100),
+   constraint PK_EVENTOS primary key (ID_EVENTO)
+);
+
+/*==============================================================*/
+/* Table: FUNCIONARIO                                           */
+/*==============================================================*/
+create table FUNCIONARIO 
+(
+   ID_FUNCIONARIO       NUMBER               not null,
+   NOME                 VARCHAR2(100),
+   CONTACTO             NUMBER,
+   constraint PK_FUNCIONARIO primary key (ID_FUNCIONARIO)
+);
+
+/*==============================================================*/
+/* Table: FUNCIONARIO_DO_ARMAZEM                                */
+/*==============================================================*/
+create table FUNCIONARIO_DO_ARMAZEM 
+(
+   ID_FUNCIONARIO_ARMAZEM NUMBER               not null,
+   ID_ARMAZEM           NUMBER               not null,
+   NOME                 VARCHAR2(100),
+   CONTACTO             NUMBER,
+   constraint PK_FUNCIONARIO_DO_ARMAZEM primary key (ID_FUNCIONARIO_ARMAZEM)
+);
+
+/*==============================================================*/
+/* Index: TRABALHA_FK                                           */
+/*==============================================================*/
+create index TRABALHA_FK on FUNCIONARIO_DO_ARMAZEM (
+   ID_ARMAZEM ASC
+);
+
+/*==============================================================*/
+/* Table: GERA_MANUTENCAO                                       */
+/*==============================================================*/
+create table GERA_MANUTENCAO 
+(
+   ID_MANUTENCAO        NUMBER               not null,
+   ID_RECLAMACAO        NUMBER               not null,
+   constraint PK_GERA_MANUTENCAO primary key (ID_MANUTENCAO, ID_RECLAMACAO)
+);
+
+/*==============================================================*/
+/* Index: GMANUTENCAO1_FK                                       */
+/*==============================================================*/
+create index GMANUTENCAO1_FK on GERA_MANUTENCAO (
+   ID_RECLAMACAO ASC
+);
+
+/*==============================================================*/
+/* Index: GMANUTENCAO2_FK                                       */
+/*==============================================================*/
+create index GMANUTENCAO2_FK on GERA_MANUTENCAO (
+   ID_MANUTENCAO ASC
+);
+
+/*==============================================================*/
+/* Table: GERA_REPOSICAO                                        */
+/*==============================================================*/
+create table GERA_REPOSICAO 
+(
+   ID_RECLAMACAO        NUMBER               not null,
+   ID_REPOSICAO         NUMBER               not null,
+   constraint PK_GERA_REPOSICAO primary key (ID_RECLAMACAO, ID_REPOSICAO)
+);
+
+/*==============================================================*/
+/* Index: GREPOSICAO2_FK                                        */
+/*==============================================================*/
+create index GREPOSICAO2_FK on GERA_REPOSICAO (
+   ID_RECLAMACAO ASC
+);
+
+/*==============================================================*/
+/* Index: GREPOSICAO1_FK                                        */
+/*==============================================================*/
+create index GREPOSICAO1_FK on GERA_REPOSICAO (
+   ID_REPOSICAO ASC
+);
+
+/*==============================================================*/
+/* Table: IDEALIZA                                              */
+/*==============================================================*/
+create table IDEALIZA 
+(
+   ID_FUNCIONARIO_ARMAZEM NUMBER               not null,
+   ID_ROTA              NUMBER               not null,
+   constraint PK_IDEALIZA primary key (ID_FUNCIONARIO_ARMAZEM, ID_ROTA)
+);
+
+/*==============================================================*/
+/* Index: IDEALIZA_FK                                           */
+/*==============================================================*/
+create index IDEALIZA_FK on IDEALIZA (
+   ID_FUNCIONARIO_ARMAZEM ASC
+);
+
+/*==============================================================*/
+/* Index: IDEALIZA2_FK                                          */
+/*==============================================================*/
+create index IDEALIZA2_FK on IDEALIZA (
+   ID_ROTA ASC
+);
+
+/*==============================================================*/
+/* Table: INCLUI                                                */
+/*==============================================================*/
+create table INCLUI 
+(
+   ID_ROTA              NUMBER               not null,
+   ID_MAQUINA           NUMBER               not null,
+   ORDEM_DE_VISITA      NUMBER,
+   constraint PK_INCLUI primary key (ID_ROTA, ID_MAQUINA)
+);
+
+/*==============================================================*/
+/* Index: INCLUI_FK                                             */
+/*==============================================================*/
+create index INCLUI_FK on INCLUI (
+   ID_ROTA ASC
+);
+
+/*==============================================================*/
+/* Index: INCLUI2_FK                                            */
+/*==============================================================*/
+create index INCLUI2_FK on INCLUI (
+   ID_MAQUINA ASC
+);
+
+/*==============================================================*/
+/* Table: MANUTENCAO                                            */
+/*==============================================================*/
+create table MANUTENCAO 
+(
+   ID_MANUTENCAO        NUMBER               not null,
+   ID_MAQUINA           NUMBER,
+   ID_VISITA            NUMBER,
+   TIPO_MANUTENCAO      VARCHAR2(100),
+   DATA_MANUTENCAO      DATE,
+   DESCRICAO            VARCHAR2(100),
+   constraint PK_MANUTENCAO primary key (ID_MANUTENCAO)
+);
+
+/*==============================================================*/
+/* Index: REPARAR_NA_FK                                         */
+/*==============================================================*/
+create index REPARAR_NA_FK on MANUTENCAO (
+   ID_MAQUINA ASC
+);
+
+/*==============================================================*/
+/* Index: REPARAR_EM_VIAGEM_FK                                  */
+/*==============================================================*/
+create index REPARAR_EM_VIAGEM_FK on MANUTENCAO (
+   ID_VISITA ASC
+);
+
+/*==============================================================*/
+/* Table: MAQUINA                                               */
+/*==============================================================*/
+create table MAQUINA 
+(
+   ID_MAQUINA           NUMBER               not null,
+   LOCALIZACAO          VARCHAR2(100),
+   DESIGNACAO           VARCHAR2(100),
+   LATITUDE             NUMBER,
+   LONGITUDE            NUMBER,
+   DATA_HORA_ULTIMO_REPORT DATE,
+   DATA_HORA_ULTIMA_VISITA DATE,
+   STATUS VARCHAR2(100),
+   constraint PK_MAQUINA primary key (ID_MAQUINA)
+);
+
+/*==============================================================*/
+/* Table: PEDE                                                  */
+/*==============================================================*/
+create table PEDE 
+(
+   ID_ENCOMENDA         NUMBER               not null,
+   ID_PRODUTO           NUMBER               not null,
+   QUANTIDADE           NUMBER,
+   constraint PK_PEDE primary key (ID_ENCOMENDA, ID_PRODUTO)
+);
+
+/*==============================================================*/
+/* Index: PEDE_FK                                               */
+/*==============================================================*/
+create index PEDE_FK on PEDE (
+   ID_ENCOMENDA ASC
+);
+
+/*==============================================================*/
+/* Index: PEDE2_FK                                              */
+/*==============================================================*/
+create index PEDE2_FK on PEDE (
+   ID_PRODUTO ASC
+);
+
+/*==============================================================*/
+/* Table: PORTAL_DE_RECLAMACOES                                 */
+/*==============================================================*/
+create table PORTAL_DE_RECLAMACOES 
+(
+   ID_RECLAMACAO        NUMBER               not null,
+   ID_VENDA             NUMBER,
+   DATA_RECLAMACAO      DATE,
+   DESCRICAO            VARCHAR2(100),
+   ESTADO               VARCHAR2(100),
+   constraint PK_PORTAL_DE_RECLAMACOES primary key (ID_RECLAMACAO)
+);
+
+/*==============================================================*/
+/* Index: INCIDE_FK                                             */
+/*==============================================================*/
+create index INCIDE_FK on PORTAL_DE_RECLAMACOES (
+   ID_VENDA ASC
+);
+
+/*==============================================================*/
+/* Table: POSSUI                                                */
+/*==============================================================*/
+create table POSSUI 
+(
+   ID_MAQUINA           NUMBER               not null,
+   ID_PRODUTO           NUMBER               not null,
+   QUANT_EM_STOCK       NUMBER,
+   CAPACIADE_MAX        NUMBER,
+   constraint PK_POSSUI primary key (ID_MAQUINA, ID_PRODUTO)
+);
+
+/*==============================================================*/
+/* Index: POSSUI_FK                                             */
+/*==============================================================*/
+create index POSSUI_FK on POSSUI (
+   ID_MAQUINA ASC
+);
+
+/*==============================================================*/
+/* Index: POSSUI2_FK                                            */
+/*==============================================================*/
+create index POSSUI2_FK on POSSUI (
+   ID_PRODUTO ASC
+);
+
+/*==============================================================*/
+/* Table: PRODUTO                                               */
+/*==============================================================*/
+create table PRODUTO 
+(
+   ID_PRODUTO           NUMBER               not null,
+   NOME                 VARCHAR2(100),
+   PRECO_MEDIO          NUMBER(10, 2),
+   UNIDADES_VENDIDAS    NUMBER,
+   QUANT_EM_MAQUINAS    NUMBER,
+   QUANT_EM_STOCK       NUMBER,
+   CAPACIADE_MAX_COMPARTIMENTO NUMBER,
+   TIPO                 VARCHAR2(100),
+   constraint PK_PRODUTO primary key (ID_PRODUTO)
+);
+
+/*==============================================================*/
+/* Table: RECARREGAR_BATERIA                                    */
+/*==============================================================*/
+create table RECARREGAR_BATERIA 
+(
+   ID_VEICULO           NUMBER               not null,
+   ID_ARMAZEM           NUMBER               not null,
+   constraint PK_RECARREGAR_BATERIA primary key (ID_VEICULO, ID_ARMAZEM)
+);
+
+/*==============================================================*/
+/* Index: RECARREGAR_BATERIA_2_FK                               */
+/*==============================================================*/
+create index RECARREGAR_BATERIA_2_FK on RECARREGAR_BATERIA (
+   ID_VEICULO ASC
+);
+
+/*==============================================================*/
+/* Index: RECARREGAR_BATERIA_1_FK                               */
+/*==============================================================*/
+create index RECARREGAR_BATERIA_1_FK on RECARREGAR_BATERIA (
+   ID_ARMAZEM ASC
+);
+
+/*==============================================================*/
+/* Table: REPOSICAO                                             */
+/*==============================================================*/
+create table REPOSICAO 
+(
+   ID_REPOSICAO         NUMBER               not null,
+   ID_COMPARTIMENTO     NUMBER,
+   ID_PRODUTO           NUMBER,
+   ID_VISITA            NUMBER,
+   QUANTIDADE_REPOSTA   NUMBER,
+   DATA_REPOSICAO       DATE,
+   DESCRICAO            VARCHAR2(100),
+   constraint PK_REPOSICAO primary key (ID_REPOSICAO)
+);
+
+/*==============================================================*/
+/* Index: REPOR_FK                                              */
+/*==============================================================*/
+create index REPOR_FK on REPOSICAO (
+   ID_PRODUTO ASC
+);
+
+/*==============================================================*/
+/* Index: REPOR_NO_FK                                           */
+/*==============================================================*/
+create index REPOR_NO_FK on REPOSICAO (
+   ID_COMPARTIMENTO ASC
+);
+
+/*==============================================================*/
+/* Index: REPOR_EM_VIAGEM_FK                                    */
+/*==============================================================*/
+create index REPOR_EM_VIAGEM_FK on REPOSICAO (
+   ID_VISITA ASC
+);
+
+/*==============================================================*/
+/* Table: ROTA                                                  */
+/*==============================================================*/
+create table ROTA 
+(
+   ID_ROTA              NUMBER               not null,
+   ID_ARMAZEM           NUMBER,
+   NOME_ROTA            VARCHAR2(100),
+   DISTANCIA_KM         NUMBER,
+   constraint PK_ROTA primary key (ID_ROTA)
+);
+
+/*==============================================================*/
+/* Index: INCIA_SE_EM_FK                                        */
+/*==============================================================*/
+create index INCIA_SE_EM_FK on ROTA (
+   ID_ARMAZEM ASC
+);
+
+/*==============================================================*/
+/* Table: TEM                                                   */
+/*==============================================================*/
+create table TEM 
+(
+   ID_PRODUTO           NUMBER               not null,
+   ID_ARMAZEM           NUMBER               not null,
+   QUANT_EM_STOCK       NUMBER,
+   constraint PK_TEM primary key (ID_PRODUTO, ID_ARMAZEM)
+);
+
+/*==============================================================*/
+/* Index: TEM_FK                                                */
+/*==============================================================*/
+create index TEM_FK on TEM (
+   ID_PRODUTO ASC
+);
+
+/*==============================================================*/
+/* Index: TEM2_FK                                               */
+/*==============================================================*/
+create index TEM2_FK on TEM (
+   ID_ARMAZEM ASC
+);
+
+/*==============================================================*/
+/* Table: TRANSPORTA                                            */
+/*==============================================================*/
+create table TRANSPORTA 
+(
+   ID_VIAGEM            NUMBER               not null,
+   ID_PRODUTO           NUMBER               not null,
+   UNIDADES             NUMBER,
+   constraint PK_TRANSPORTA primary key (ID_VIAGEM, ID_PRODUTO)
+);
+
+/*==============================================================*/
+/* Index: TRANSPORTA_FK                                         */
+/*==============================================================*/
+create index TRANSPORTA_FK on TRANSPORTA (
+   ID_VIAGEM ASC
+);
+
+/*==============================================================*/
+/* Index: TRANSPORTA2_FK                                        */
+/*==============================================================*/
+create index TRANSPORTA2_FK on TRANSPORTA (
+   ID_PRODUTO ASC
+);
+
+/*==============================================================*/
+/* Table: VEICULO                                               */
+/*==============================================================*/
+create table VEICULO 
+(
+   ID_VEICULO           NUMBER               not null,
+   MATRICULA            VARCHAR2(100),
+   CAPACIDADE_CARGA     NUMBER,
+   AUTONOMIA_KM         NUMBER(10, 2),
+   MARCA VARCHAR2(50),
+   MODELO VARCHAR2(50),
+   constraint PK_VEICULO primary key (ID_VEICULO)
+);
+
+/*==============================================================*/
+/* Table: VENDA                                                 */
+/*==============================================================*/
+create table VENDA 
+(
+   ID_VENDA             NUMBER               not null,
+   ID_COMPARTIMENTO     NUMBER,
+   ID_PRODUTO           NUMBER,
+   ID_MAQUINA           NUMBER,
+   DATA_HORA            DATE,
+   PRECO               NUMBER(10, 2),
+   constraint PK_VENDA primary key (ID_VENDA)
+);
+
+/*==============================================================*/
+/* Index: E_FEITA_NA_FK                                         */
+/*==============================================================*/
+create index E_FEITA_NA_FK on VENDA (
+   ID_MAQUINA ASC
+);
+
+/*==============================================================*/
+/* Index: VENDE_SE_FK                                           */
+/*==============================================================*/
+create index VENDE_SE_FK on VENDA (
+   ID_PRODUTO ASC
+);
+
+/*==============================================================*/
+/* Index: E_FEITA_NO_FK                                         */
+/*==============================================================*/
+create index E_FEITA_NO_FK on VENDA (
+   ID_COMPARTIMENTO ASC
+);
+
+/*==============================================================*/
+/* Table: VIAGEM                                                */
+/*==============================================================*/
+create table VIAGEM 
+(
+   ID_VIAGEM            NUMBER               not null,
+   ID_ROTA              NUMBER,
+   ID_VEICULO           NUMBER,
+   ID_FUNCIONARIO       NUMBER,
+   DATA_HORA_INICIO     DATE,
+   DATA_HORA_FIM        DATE,
+   DISTANCIA_KM         NUMBER,
+   constraint PK_VIAGEM primary key (ID_VIAGEM)
+);
+
+/*==============================================================*/
+/* Index: CONDUZ_FK                                             */
+/*==============================================================*/
+create index CONDUZ_FK on VIAGEM (
+   ID_FUNCIONARIO ASC
+);
+
+/*==============================================================*/
+/* Index: E_UTILIZADO_EM_FK                                     */
+/*==============================================================*/
+create index E_UTILIZADO_EM_FK on VIAGEM (
+   ID_VEICULO ASC
+);
+
+/*==============================================================*/
+/* Index: SEGUE_FK                                              */
+/*==============================================================*/
+create index SEGUE_FK on VIAGEM (
+   ID_ROTA ASC
+);
+
+/*==============================================================*/
+/* Table: VISITA                                                */
+/*==============================================================*/
+create table VISITA 
+(
+   ID_VISITA            NUMBER               not null,
+   ID_VIAGEM            NUMBER,
+   ID_RECLAMACAO        NUMBER,
+   ID_MAQUINA           NUMBER,
+   MOTIVO               VARCHAR2(100),
+   DISTANCIA            NUMBER,
+   DATA_VISITA          DATE,
+   constraint PK_VISITA primary key (ID_VISITA)
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_1_FK                                     */
+/*==============================================================*/
+create index RELATIONSHIP_1_FK on VISITA (
+   ID_RECLAMACAO ASC
+);
+
+/*==============================================================*/
+/* Index: ENGLOBA_FK                                            */
+/*==============================================================*/
+create index ENGLOBA_FK on VISITA (
+   ID_MAQUINA ASC
+);
+
+/*==============================================================*/
+/* Index: PROVEM_FK                                             */
+/*==============================================================*/
+create index PROVEM_FK on VISITA (
+   ID_VIAGEM ASC
+);
+
+alter table COMPARTIMENTO
+   add constraint FK_COMPARTI_E_CONSTIT_MAQUINA foreign key (ID_MAQUINA)
+      references MAQUINA (ID_MAQUINA);
+
+alter table ENCOMENDA
+   add constraint FK_ENCOMEND_PROPOE_FUNCIONA foreign key (ID_FUNCIONARIO_ARMAZEM)
+      references FUNCIONARIO_DO_ARMAZEM (ID_FUNCIONARIO_ARMAZEM);
+
+alter table ENCOMENDA
+   add constraint FK_ENCOMEND_RECEBE_PR_ARMAZEM foreign key (ID_ARMAZEM)
+      references ARMAZEM (ID_ARMAZEM);
+
+alter table ENVIA_EVENTO
+   add constraint FK_ENVIA_EV_ENVIA_EVE_EVENTOS foreign key (ID_EVENTO)
+      references EVENTOS (ID_EVENTO);
+
+alter table ENVIA_EVENTO
+   add constraint FK_ENVIA_EV_ENVIA_EVE_MAQUINA foreign key (ID_MAQUINA)
+      references MAQUINA (ID_MAQUINA);
+
+alter table ESTA_NUM
+   add constraint FK_ESTA_NUM_ESTA_NUM__COMPARTI foreign key (ID_COMPARTIMENTO)
+      references COMPARTIMENTO (ID_COMPARTIMENTO);
+
+alter table ESTA_NUM
+   add constraint FK_ESTA_NUM_ESTA_NUM__PRODUTO foreign key (ID_PRODUTO)
+      references PRODUTO (ID_PRODUTO);
+
+alter table FUNCIONARIO_DO_ARMAZEM
+   add constraint FK_FUNCIONA_TRABALHA_ARMAZEM foreign key (ID_ARMAZEM)
+      references ARMAZEM (ID_ARMAZEM);
+
+alter table GERA_MANUTENCAO
+   add constraint FK_GERA_MAN_GMANUTENC_PORTAL_D foreign key (ID_RECLAMACAO)
+      references PORTAL_DE_RECLAMACOES (ID_RECLAMACAO);
+
+alter table GERA_MANUTENCAO
+   add constraint FK_GERA_MAN_GMANUTENC_MANUTENC foreign key (ID_MANUTENCAO)
+      references MANUTENCAO (ID_MANUTENCAO);
+
+alter table GERA_REPOSICAO
+   add constraint FK_GERA_REP_GREPOSICA_REPOSICA foreign key (ID_REPOSICAO)
+      references REPOSICAO (ID_REPOSICAO);
+
+alter table GERA_REPOSICAO
+   add constraint FK_GERA_REP_GREPOSICA_PORTAL_D foreign key (ID_RECLAMACAO)
+      references PORTAL_DE_RECLAMACOES (ID_RECLAMACAO);
+
+alter table IDEALIZA
+   add constraint FK_IDEALIZA_IDEALIZA_FUNCIONA foreign key (ID_FUNCIONARIO_ARMAZEM)
+      references FUNCIONARIO_DO_ARMAZEM (ID_FUNCIONARIO_ARMAZEM);
+
+alter table IDEALIZA
+   add constraint FK_IDEALIZA_IDEALIZA2_ROTA foreign key (ID_ROTA)
+      references ROTA (ID_ROTA);
+
+alter table INCLUI
+   add constraint FK_INCLUI_INCLUI_ROTA foreign key (ID_ROTA)
+      references ROTA (ID_ROTA);
+
+alter table INCLUI
+   add constraint FK_INCLUI_INCLUI2_MAQUINA foreign key (ID_MAQUINA)
+      references MAQUINA (ID_MAQUINA);
+
+alter table MANUTENCAO
+   add constraint FK_MANUTENC_REPARAR_E_VISITA foreign key (ID_VISITA)
+      references VISITA (ID_VISITA);
+
+alter table MANUTENCAO
+   add constraint FK_MANUTENC_REPARAR_N_MAQUINA foreign key (ID_MAQUINA)
+      references MAQUINA (ID_MAQUINA);
+
+alter table PEDE
+   add constraint FK_PEDE_PEDE_ENCOMEND foreign key (ID_ENCOMENDA)
+      references ENCOMENDA (ID_ENCOMENDA);
+
+alter table PEDE
+   add constraint FK_PEDE_PEDE2_PRODUTO foreign key (ID_PRODUTO)
+      references PRODUTO (ID_PRODUTO);
+
+alter table PORTAL_DE_RECLAMACOES
+   add constraint FK_PORTAL_D_INCIDE_VENDA foreign key (ID_VENDA)
+      references VENDA (ID_VENDA);
+
+alter table POSSUI
+   add constraint FK_POSSUI_POSSUI_MAQUINA foreign key (ID_MAQUINA)
+      references MAQUINA (ID_MAQUINA);
+
+alter table POSSUI
+   add constraint FK_POSSUI_POSSUI2_PRODUTO foreign key (ID_PRODUTO)
+      references PRODUTO (ID_PRODUTO);
+
+alter table RECARREGAR_BATERIA
+   add constraint FK_RECARREG_RECARREGA_ARMAZEM foreign key (ID_ARMAZEM)
+      references ARMAZEM (ID_ARMAZEM);
+
+alter table RECARREGAR_BATERIA
+   add constraint FK_RECARREG_RECARREGA_VEICULO foreign key (ID_VEICULO)
+      references VEICULO (ID_VEICULO);
+
+alter table REPOSICAO
+   add constraint FK_REPOSICA_REPOR_PRODUTO foreign key (ID_PRODUTO)
+      references PRODUTO (ID_PRODUTO);
+
+alter table REPOSICAO
+   add constraint FK_REPOSICA_REPOR_EM__VISITA foreign key (ID_VISITA)
+      references VISITA (ID_VISITA);
+
+alter table REPOSICAO
+   add constraint FK_REPOSICA_REPOR_NO_COMPARTI foreign key (ID_COMPARTIMENTO)
+      references COMPARTIMENTO (ID_COMPARTIMENTO);
+
+alter table ROTA
+   add constraint FK_ROTA_INCIA_SE__ARMAZEM foreign key (ID_ARMAZEM)
+      references ARMAZEM (ID_ARMAZEM);
+
+alter table TEM
+   add constraint FK_TEM_TEM_PRODUTO foreign key (ID_PRODUTO)
+      references PRODUTO (ID_PRODUTO);
+
+alter table TEM
+   add constraint FK_TEM_TEM2_ARMAZEM foreign key (ID_ARMAZEM)
+      references ARMAZEM (ID_ARMAZEM);
+
+alter table TRANSPORTA
+   add constraint FK_TRANSPOR_TRANSPORT_VIAGEM foreign key (ID_VIAGEM)
+      references VIAGEM (ID_VIAGEM);
+
+alter table TRANSPORTA
+   add constraint FK_TRANSPOR_TRANSPORT_PRODUTO foreign key (ID_PRODUTO)
+      references PRODUTO (ID_PRODUTO);
+
+alter table VENDA
+   add constraint FK_VENDA_E_FEITA_N_MAQUINA foreign key (ID_MAQUINA)
+      references MAQUINA (ID_MAQUINA);
+
+alter table VENDA
+   add constraint FK_VENDA_E_FEITA_N_COMPARTI foreign key (ID_COMPARTIMENTO)
+      references COMPARTIMENTO (ID_COMPARTIMENTO);
+
+alter table VENDA
+   add constraint FK_VENDA_VENDE_SE_PRODUTO foreign key (ID_PRODUTO)
+      references PRODUTO (ID_PRODUTO);
+
+alter table VIAGEM
+   add constraint FK_VIAGEM_CONDUZ_FUNCIONA foreign key (ID_FUNCIONARIO)
+      references FUNCIONARIO (ID_FUNCIONARIO);
+
+alter table VIAGEM
+   add constraint FK_VIAGEM_E_UTILIZA_VEICULO foreign key (ID_VEICULO)
+      references VEICULO (ID_VEICULO);
+
+alter table VIAGEM
+   add constraint FK_VIAGEM_SEGUE_ROTA foreign key (ID_ROTA)
+      references ROTA (ID_ROTA);
+
+alter table VISITA
+   add constraint FK_VISITA_ENGLOBA_MAQUINA foreign key (ID_MAQUINA)
+      references MAQUINA (ID_MAQUINA);
+
+alter table VISITA
+   add constraint FK_VISITA_PROVEM_VIAGEM foreign key (ID_VIAGEM)
+      references VIAGEM (ID_VIAGEM);
+
+alter table VISITA
+   add constraint FK_VISITA_RELATIONS_PORTAL_D foreign key (ID_RECLAMACAO)
+      references PORTAL_DE_RECLAMACOES (ID_RECLAMACAO);
+
