@@ -36,5 +36,5 @@ The primary objective was to design and implement a robust relational database a
 
 ## Authors
 
-* Diogo Marques Silva
-* Pedro Miguel Duarte Águas
+* Diogo Silva
+* Pedro Águas
