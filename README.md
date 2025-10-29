@@ -29,10 +29,10 @@ The primary objective was to design and implement a robust relational database a
 
 ## Repository Contents
 
-* **`Fisico.pdf`**: PDF document containing the database's Physical Model diagram (Table Diagram).
-* **`s)_t).pdf`**: Delivery Report detailing the implementation of the assignment's requirements and technical solutions.
-* **`202325_AABD_Trabalho_Prático_v01.02.pdf`**: Original assignment brief (for context).
-* **SQL Scripts:** SQL files containing the scripts for database creation, views, procedures, functions, and triggers.
+| File / Folder | Description |
+| :--- | :--- |
+| **`/Source/`** | **Contains all technical implementation files**, including the SQL/PL/SQL scripts and the Physical Model Diagram. |
+| `202325_AABD_Trabalho_Prático_v01.02.pdf` | The original assignment brief (for context). |
 
 ## Authors
 
