@@ -33,3 +33,8 @@ The primary objective was to design and implement a robust relational database a
 * **`s)_t).pdf`**: Delivery Report detailing the implementation of the assignment's requirements and technical solutions.
 * **`202325_AABD_Trabalho_Prático_v01.02.pdf`**: Original assignment brief (for context).
 * **SQL Scripts:** SQL files containing the scripts for database creation, views, procedures, functions, and triggers.
+
+## Authors
+
+* Diogo Marques Silva
+* Pedro Miguel Duarte Águas
